@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Novo Remédio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Novo Remédio</h1>
+    <form th:action="${acao} == null ? '/drogaria' : ${acao}" method="post">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input th:value="${acao} != null ? ${remedio.nome}" type="text" class="form-control" id="nome" name="nome" required>
+        </div>
+        <div class="mb-3">
+            <label for="preco" class="form-label">Preço</label>
+            <input th:value="${acao} != null ? ${remedio.preco}" type="number" class="form-control" id="preco" name="preco" step="0.01" required>
+        </div>
+        <div class="mb-3">
+            <label for="dataDeFabricacao" class="form-label">Data de Fabricação</label>
+            <input th:value="${acao} != null ? ${remedio.dataDeFabricacao}" type="date" class="form-control" id="dataDeFabricacao" name="dataDeFabricacao" required>
+        </div>
+        <div class="mb-3">
+            <label for="dataDeValidade" class="form-label">Data de Validade</label>
+            <input th:value="${acao} != null ? ${remedio.dataDeValidade}" type="date" class="form-control" id="dataDeValidade" name="dataDeValidade" required>
+        </div>
+        <div class="mb-3">
+            <label for="urlImagem" class="form-label">URL da Imagem</label>
+            <input th:value="${acao} != null ? ${remedio.urlImagem}" type="url" class="form-control" id="urlImagem" name="urlImagem">
+        </div>
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <a href="/drogaria" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+</body>
+</html>
